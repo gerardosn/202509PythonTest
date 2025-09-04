@@ -49,6 +49,15 @@ def delete_user(user_id):
             return True
     return False
 
+def activate_user_by_email(email):
+    db = load_db()
+    for user in db["users"]:
+        if user["email"] == email and not user["active"]:
+            user["active"] = True
+            save_db(db)
+            return True
+    return False
+
 def list_users(active_only=True):
     db = load_db()
     if active_only:

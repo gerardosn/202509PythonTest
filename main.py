@@ -1,7 +1,7 @@
 # Punto de entrada del programa
 
 
-from services.user_service import create_user, read_user, update_user, delete_user, list_users
+from services.user_service import create_user, read_user, update_user, delete_user, list_users, activate_user_by_email
 from utils.helpers import is_valid_email, is_valid_password
 
 def menu():
@@ -11,6 +11,7 @@ def menu():
     print("3. Buscar usuario por ID")
     print("4. Actualizar usuario")
     print("5. Eliminar usuario")
+    print("6. Activar usuario")
     print("0. Salir")
 
 def main():
@@ -62,6 +63,15 @@ def main():
                 print("Usuario eliminado.")
             else:
                 print("Usuario no encontrado.")
+        elif opcion == "6":
+            email = input("Ingrese el correo electrónico del usuario a activar: ")
+            if not is_valid_email(email):
+                print("Email inválido.")
+                continue
+            if activate_user_by_email(email):
+                print("Usuario activado exitosamente.")
+            else:
+                print("Usuario no encontrado o ya está activo.")
         elif opcion == "0":
             print("Saliendo...")
             break
