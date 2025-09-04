@@ -42,13 +42,15 @@ def update_user(user_id, email=None, password=None):
 
 def delete_user(user_id):
     db = load_db()
-    for i, user in enumerate(db["users"]):
+    for user in db["users"]:
         if user["id"] == user_id:
-            db["users"].pop(i)
+            user["active"] = False  # Logical deletion by setting active flag to False
             save_db(db)
             return True
     return False
 
-def list_users():
+def list_users(active_only=True):
     db = load_db()
+    if active_only:
+        return [user for user in db["users"] if user.get("active", True)]
     return db["users"]

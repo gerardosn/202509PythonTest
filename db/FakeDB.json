@@ -3,7 +3,19 @@
         {
             "id": "01f7b913-2a18-4444-8385-dd8bdfb25b2c",
             "email": "asdfa@asdfa.com",
-            "password": "sadf"
+            "password": "sadf",
+            "active": false
+        },
+        {
+            "id": "16de3c78-84e3-4472-961b-8e0d32a12dec",
+            "email": "asdfasd@asdga.com",
+            "password": "asdfw"
+        },
+        {
+            "id": "70f4158a-45c5-48df-a21c-0c6780df5bc5",
+            "email": "asdf@asdfaas.com",
+            "password": "asdfas",
+            "active": true
         }
     ]
 }
