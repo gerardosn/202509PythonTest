@@ -63,3 +63,14 @@ def list_users(active_only=True):
     if active_only:
         return [user for user in db["users"] if user.get("active", True)]
     return db["users"]
+
+def get_user_by_email(email):
+    db = load_db()
+    for user in db["users"]:
+        if user["email"] == email:
+            return user
+    return None
+
+# Additional helper function to check if email exists
+def email_exists(email):
+    return get_user_by_email(email) is not None

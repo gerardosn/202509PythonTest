@@ -1,8 +1,7 @@
 # Punto de entrada del programa
-
-
-from services.user_service import create_user, read_user, update_user, delete_user, list_users, activate_user_by_email
+from services.user_service import create_user, read_user, update_user, delete_user, list_users, activate_user_by_email, email_exists
 from utils.helpers import is_valid_email, is_valid_password
+import os
 
 def menu():
     print("\n--- CRUD de Usuarios ---")
@@ -18,12 +17,17 @@ def main():
     while True:
         menu()
         opcion = input("Seleccione una opción: ")
+        os.system('clear')
         if opcion == "1":
             email = input("Email: ")
-            password = input("Password: ")
             if not is_valid_email(email):
                 print("Email inválido.")
                 continue
+            if email_exists(email):
+                print("El email ya está registrado.")
+                continue
+            password = input("Password: ")
+            
             if not is_valid_password(password):
                 print("Password debe tener al menos 6 caracteres.")
                 continue
@@ -48,6 +52,9 @@ def main():
             password = input("Nuevo password (dejar vacío para no cambiar): ")
             if email and not is_valid_email(email):
                 print("Email inválido.")
+                continue
+            if email_exists(email):
+                print("El email ya está registrado.")
                 continue
             if password and not is_valid_password(password):
                 print("Password debe tener al menos 6 caracteres.")

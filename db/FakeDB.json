@@ -9,12 +9,25 @@
         {
             "id": "16de3c78-84e3-4472-961b-8e0d32a12dec",
             "email": "asdfasd@asdga.com",
-            "password": "asdfw"
+            "password": "asdfw",
+            "active": true
         },
         {
             "id": "70f4158a-45c5-48df-a21c-0c6780df5bc5",
             "email": "asdf@asdfaas.com",
             "password": "asdfas",
+            "active": true
+        },
+        {
+            "id": "b66287dc-ba62-4512-861d-42a0ffb0204e",
+            "email": "asdfa@asdfa.com",
+            "password": "falsdhgajsdh",
+            "active": true
+        },
+        {
+            "id": "11806c24-e7a1-433e-b27a-1a84857f9afe",
+            "email": "asdfasdgas@asdgasdf.com",
+            "password": "ohiughjj",
             "active": true
         }
     ]
