@@ -2,6 +2,7 @@
 import json
 from models.user import User
 from utils.helpers import generate_uuid
+import hashlib
 
 DB_PATH = "db/FakeDB.json"
 
@@ -16,7 +17,9 @@ def save_db(data):
 def create_user(email, password):
     db = load_db()
     user_id = generate_uuid()
-    user = User(user_id, email, password)
+        # Hash the password using SHA256
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
+    user = User(user_id, email, hashed_password)
     db["users"].append(user.to_dict())
     save_db(db)
     return user
@@ -35,7 +38,9 @@ def update_user(user_id, email=None, password=None):
             if email:
                 user["email"] = email
             if password:
-                user["password"] = password
+                # Hash the new password before updating
+                hashed_password = hashlib.sha256(password.encode()).hexdigest()
+                user["password"] = hashed_password
             save_db(db)
             return user
     return None

@@ -14,7 +14,9 @@ def menu():
     print("0. Salir")
 
 def main():
-    while True:
+    continuar = "si"
+
+    while continuar.lower() == "si":
         menu()
         opcion = input("Seleccione una opción: ")
         os.system('clear')
@@ -84,6 +86,8 @@ def main():
             break
         else:
             print("Opción inválida.")
-
+        continuar = input("¿Desea continuar? (si/no): ")
+        os.system('clear')
+    print("Programa terminado.")
 if __name__ == "__main__":
     main()

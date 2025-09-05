@@ -29,6 +29,12 @@
             "email": "asdfasdgas@asdgasdf.com",
             "password": "ohiughjj",
             "active": true
+        },
+        {
+            "id": "150d6d71-0e5d-4db6-b567-7eeebcd8a270",
+            "email": "adgasdf@agdsafgsa.com",
+            "password": "384dac3368de6f658d7bc66e8fd4c8206b91c17a9084498948c7dd6e44d4a055",
+            "active": true
         }
     ]
 }
